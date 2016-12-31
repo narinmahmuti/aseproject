@@ -1,49 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Tutor Settings</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <script type="text/javascript">
 
-<script type="text/javascript">
-     
-            function changePassword() {
-            	window.location = "../tutor_change_password.html"
-            }
-            
-            function setUpTutorial() {
-            	window.location = "../tutor_set_tutorial_page.html"
-            }
-            
-            function calculateBonuses() {
-            	// TODO : need to do heavy calculations here
-            }
-       
-      </script>
+        function changePassword() {
+            window.location = "../tutor_change_password.html"
+        }
+
+        function setUpTutorial() {
+            window.location = "../tutor_set_tutorial_page.html"
+        }
+
+        function calculateBonuses() {
+            // TODO : need to do heavy calculations here
+        }
+
+    </script>
 
 
 </head>
 <body>
-
-	<H1>Tutor Settings</H1>
-
-	<P>
-		<input id="tutor_change_password" type="button" value="Change Password"
-			onclick="changePassword()">
-	</P>
-
-
-	<P>
-		<input id="tutor_set_tutorial" type="button" value="Set up Tutorials"
-			onclick="setUpTutorial()">
-	</P>
-	
-	<P>
-		<input id="tutor_bonus_calculation" type="button" value="Calculate Bonuses"
-			onclick="calculateBonuses()">
-	</P>
-
-</body>
-
-
+<div class="center-div">
+    <h1>Tutor Settings</h1>
+</div>
+<div class="center2-div">
+    <div class="container">
+        <div class="row">
+            <br>
+            <a class="btn btn-primary btn-outline btn-lg" id="tutor_change_password" onclick="changePassword()">Change Password</a>
+            <a class="btn btn-success btn-outline btn-lg" id="tutor_set_tutorial" onclick="setUpTutorial()">Set Tutorial Settings</a>
+            <a class="btn btn-danger btn-outline btn-lg" id="tutor_bonus_calculation" onclick="calculateBonuses()">Calculate Bonus</a>
+            </ul>
+        </div>
+    </div>
+</div>
 </body>
 </html>
