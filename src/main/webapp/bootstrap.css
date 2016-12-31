@@ -6703,6 +6703,15 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
     margin-left: auto;
     margin-top: 100px;
 }
+.center2-div
+{
+    text-align: left;
+    width: 1500px;
+    display: table;
+    margin-right: -300px;
+    margin-left: auto;
+    margin-top: 100px;
+}
 
 
 .btn-outline {
