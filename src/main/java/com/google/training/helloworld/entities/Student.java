@@ -1,4 +1,4 @@
-package com.google.training.helloworld;
+package com.google.training.helloworld.entities;
 
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiMethod.HttpMethod;

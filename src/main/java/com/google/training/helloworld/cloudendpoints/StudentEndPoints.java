@@ -1,11 +1,14 @@
-package com.google.training.helloworld;
+package com.google.training.helloworld.cloudendpoints;
 
 import java.util.List;
 
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiMethod.HttpMethod;
-import com.googlecode.objectify.Key;
+import com.google.training.helloworld.entities.Student;
+import com.google.training.helloworld.entities.Tutor;
+import com.google.training.helloworld.entities.Tutorial;
+import com.google.training.helloworld.utilities.Constants;
 import com.googlecode.objectify.ObjectifyService;
 
 /**

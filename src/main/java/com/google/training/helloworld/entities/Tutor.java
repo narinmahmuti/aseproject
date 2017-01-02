@@ -1,4 +1,4 @@
-package com.google.training.helloworld;
+package com.google.training.helloworld.entities;
 
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;

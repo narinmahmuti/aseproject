@@ -1,4 +1,4 @@
-package com.google.training.helloworld;
+package com.google.training.helloworld.utilities;
 
 import com.google.api.server.spi.Constant;
 

@@ -1,8 +1,11 @@
-package com.google.training.helloworld;
+package com.google.training.helloworld.utilities;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import com.google.training.helloworld.entities.Student;
+import com.google.training.helloworld.entities.Tutor;
+import com.google.training.helloworld.entities.Tutorial;
 import com.googlecode.objectify.ObjectifyService;
 
 public class OfyHelper implements ServletContextListener {

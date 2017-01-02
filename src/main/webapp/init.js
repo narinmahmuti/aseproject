@@ -12,13 +12,13 @@
 
 function init() {
 
-	//var rootpath = "//" + window.location.host + "/_ah/api";
-	//gapi.client.load('studentendpoints', 'v1', loadCallback, rootpath);
+	var rootpath = "//" + window.location.host + "/_ah/api";
+	gapi.client.load('studentendpoints', 'v1', loadCallback, rootpath);
 }
 
 
 function loadCallback() {
-	//gapi.client.studentendpoints.addTutorData();
+	gapi.client.studentendpoints.addTutorData();
 	enableButtons();
 }
 
