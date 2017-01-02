@@ -10,7 +10,7 @@ import com.googlecode.objectify.annotation.Parent;
 public class Tutorial {
 
 	@Id
-	public int tutorialId;
+	public long tutorialId;
 	
 	public String tutorialName;
 	public String tutorialTimings; // start time of the tutorial for this tutorial group

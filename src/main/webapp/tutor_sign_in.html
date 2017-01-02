@@ -175,13 +175,19 @@
         function authenticateTutor() {
             var username = document.getElementById("tutor_username").value;
             var password = document.getElementById("tutor_password").value;
-            var status = gapi.client.studentendpoints.authenticateTutor(username, password);
-            if (status) {
-                // authentication successful redirect him to the settings page
-                window.location = "../tutor_sign_in.html"
-            } else {
-                document.getElementById("authentication_status").value = "Authentication failed ! Please try again"
-            }
+            alert("username :" + username + "   password :" + password);
+            gapi.client.studentendpoints.authenticateTutor(username, password).execute(
+            	      function(status) {
+            	    	  if (status) {
+            	                // authentication successful redirect him to the settings page
+            	                alert("Authentication Successful!")
+            	                window.location = "../tutor_settings.html"
+            	            } else {
+            	            	alert("Authentication failed!")
+            	                document.getElementById("authentication_status").value = "Authentication failed ! Please try again"
+            	            }
+            	        });
+            	  };
         }
 
     </script>
