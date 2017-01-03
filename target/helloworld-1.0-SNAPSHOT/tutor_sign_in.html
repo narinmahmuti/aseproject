@@ -172,7 +172,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
     <script type="text/javascript">
 
-        function authenticateTutor() {
+        function authenticate() {
             var username = document.getElementById("tutor_username").value;
             var password = document.getElementById("tutor_password").value;
             alert("username :" + username + "   password :" + password);
@@ -200,7 +200,7 @@
         <i class="fa fa-user"></i>
         <input type="password" id="tutor_password" placeholder="Password" />
         <i class="fa fa-key"></i>
-        <button id="tutor_login" onclick="authenticateTutor()">
+        <button id="tutor_login" onclick="authenticate()">
             <i class="spinner"></i>
             <span class="state">Continue</span>
         </button>

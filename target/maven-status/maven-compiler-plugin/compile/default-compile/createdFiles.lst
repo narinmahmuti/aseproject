@@ -1,5 +1,6 @@
 com/google/training/helloworld/utilities/Constants.class
 com/google/training/helloworld/entities/Tutorial.class
+com/google/training/helloworld/cloudendpoints/StudentEndPoints.class
 com/google/training/helloworld/entities/Student.class
 com/google/training/helloworld/entities/Tutor.class
 com/google/training/helloworld/utilities/OfyHelper.class

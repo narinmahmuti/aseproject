@@ -8,7 +8,7 @@ public class Tutor {
 
 	
 	@Id
-	public Long Id;
+	public long Id;
 	
 	public String tutorusername;
 	
@@ -17,5 +17,9 @@ public class Tutor {
 	public Tutor(String tutorUserName, String tutorPassword) {
 		this.tutorusername = tutorUserName;
 		this.tutorpassword = tutorPassword;
+	}
+	
+	public Tutor() {
+		
 	}
 }

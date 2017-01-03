@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/fglxipaeSOdQSfVm96y1gkqqlLo\"",
+ "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/8tnEu6NDZ7cbl85ejj1cW3SJMMo\"",
  "discoveryVersion": "v1",
  "id": "studentendpoints:v1",
  "name": "studentendpoints",
@@ -125,18 +125,6 @@
     }
    }
   },
-  "TutorCollection": {
-   "id": "TutorCollection",
-   "type": "object",
-   "properties": {
-    "items": {
-     "type": "array",
-     "items": {
-      "$ref": "Tutor"
-     }
-    }
-   }
-  },
   "Tutorial": {
    "id": "Tutorial",
    "type": "object",
@@ -216,8 +204,24 @@
    "id": "studentendpoints.addTutorData",
    "path": "addTutorData",
    "httpMethod": "POST",
+   "parameters": {
+    "tutorpassword": {
+     "type": "string",
+     "required": true,
+     "location": "query"
+    },
+    "tutorusername": {
+     "type": "string",
+     "required": true,
+     "location": "query"
+    }
+   },
+   "parameterOrder": [
+    "tutorpassword",
+    "tutorusername"
+   ],
    "response": {
-    "$ref": "TutorCollection"
+    "$ref": "Tutor"
    },
    "scopes": [
     "https://www.googleapis.com/auth/userinfo.email"

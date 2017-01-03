@@ -120,34 +120,13 @@ public class StudentEndPoints {
 	}
 
 	@ApiMethod(name = "addTutorData", path = "addTutorData", httpMethod = HttpMethod.POST)
-	public List<Tutor> addTutorData() {
-		List<Tutor> list = ObjectifyService.ofy().load().type(Tutor.class)
-				.list();
-		System.out.println("Trying to fetch the list in add tutor data");
-		if (list.isEmpty()) {
-			Tutor tutor1 = new Tutor("bulent", "abc123");
-			Tutor tutor2 = new Tutor("narin", "def123");
-			Tutor tutor3 = new Tutor("verena", "ghi123");
-			ObjectifyService.ofy().save().entity(tutor1).now();
-			list.add(tutor1);
-			// ObjectifyService.ofy().save().entity(tutor2).now();
-			// ObjectifyService.ofy().save().entity(tutor3).now();
-		}
+	public Tutor addTutorData(@Named("tutorusername") String username,
+			@Named("tutorpassword") String password) {
+		
+		Tutor tutor = new Tutor(username, password);
+		ObjectifyService.ofy().save().entity(tutor).now();
 
-		return list;
+		return tutor;
 	}
-
-//	public static class WrappedBoolean {
-//
-//		private final Boolean result;
-//
-//		public WrappedBoolean(Boolean result) {
-//			this.result = result;
-//		}
-//
-//		public Boolean getResult() {
-//			return result;
-//		}
-//	}
 
 }
