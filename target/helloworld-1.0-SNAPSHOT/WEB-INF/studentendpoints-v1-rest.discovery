@@ -1,0 +1,472 @@
+{
+ "kind": "discovery#restDescription",
+ "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/fglxipaeSOdQSfVm96y1gkqqlLo\"",
+ "discoveryVersion": "v1",
+ "id": "studentendpoints:v1",
+ "name": "studentendpoints",
+ "version": "v1",
+ "description": "API for student modules",
+ "icons": {
+  "x16": "https://www.gstatic.com/images/branding/product/1x/googleg_16dp.png",
+  "x32": "https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png"
+ },
+ "protocol": "rest",
+ "baseUrl": "https://guestbook-148810.appspot.com/_ah/api/studentendpoints/v1/",
+ "basePath": "/_ah/api/studentendpoints/v1/",
+ "rootUrl": "https://guestbook-148810.appspot.com/_ah/api/",
+ "servicePath": "studentendpoints/v1/",
+ "batchPath": "batch",
+ "parameters": {
+  "alt": {
+   "type": "string",
+   "description": "Data format for the response.",
+   "default": "json",
+   "enum": [
+    "json"
+   ],
+   "enumDescriptions": [
+    "Responses with Content-Type of application/json"
+   ],
+   "location": "query"
+  },
+  "fields": {
+   "type": "string",
+   "description": "Selector specifying which fields to include in a partial response.",
+   "location": "query"
+  },
+  "key": {
+   "type": "string",
+   "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+   "location": "query"
+  },
+  "oauth_token": {
+   "type": "string",
+   "description": "OAuth 2.0 token for the current user.",
+   "location": "query"
+  },
+  "prettyPrint": {
+   "type": "boolean",
+   "description": "Returns response with indentations and line breaks.",
+   "default": "true",
+   "location": "query"
+  },
+  "quotaUser": {
+   "type": "string",
+   "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+   "location": "query"
+  },
+  "userIp": {
+   "type": "string",
+   "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+   "location": "query"
+  }
+ },
+ "auth": {
+  "oauth2": {
+   "scopes": {
+    "https://www.googleapis.com/auth/userinfo.email": {
+     "description": "View your email address"
+    }
+   }
+  }
+ },
+ "schemas": {
+  "Student": {
+   "id": "Student",
+   "type": "object",
+   "properties": {
+    "bonusweeks": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "deviceid": {
+     "type": "string"
+    },
+    "email": {
+     "type": "string"
+    },
+    "gcmregid": {
+     "type": "string"
+    },
+    "imkn": {
+     "type": "string"
+    },
+    "ispresented": {
+     "type": "boolean"
+    },
+    "name": {
+     "type": "string"
+    },
+    "pwd": {
+     "type": "string"
+    },
+    "randomkey": {
+     "type": "string"
+    },
+    "totalweeks": {
+     "type": "integer",
+     "format": "int32"
+    }
+   }
+  },
+  "Tutor": {
+   "id": "Tutor",
+   "type": "object",
+   "properties": {
+    "Id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "tutorpassword": {
+     "type": "string"
+    },
+    "tutorusername": {
+     "type": "string"
+    }
+   }
+  },
+  "TutorCollection": {
+   "id": "TutorCollection",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "Tutor"
+     }
+    }
+   }
+  },
+  "Tutorial": {
+   "id": "Tutorial",
+   "type": "object",
+   "properties": {
+    "bonusweeks": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "duration": {
+     "type": "string",
+     "format": "int64"
+    },
+    "totalweeks": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "tutorialid": {
+     "type": "string",
+     "format": "int64"
+    },
+    "tutorialname": {
+     "type": "string"
+    },
+    "tutorialtimings": {
+     "type": "string"
+    }
+   }
+  }
+ },
+ "methods": {
+  "addStudentEntry": {
+   "id": "studentendpoints.addStudentEntry",
+   "path": "addStudentEntry",
+   "httpMethod": "POST",
+   "parameters": {
+    "email": {
+     "type": "string",
+     "required": true,
+     "location": "query"
+    },
+    "imkn": {
+     "type": "string",
+     "required": true,
+     "location": "query"
+    },
+    "name": {
+     "type": "string",
+     "required": true,
+     "location": "query"
+    },
+    "pwd": {
+     "type": "string",
+     "required": true,
+     "location": "query"
+    },
+    "tutorialgroup": {
+     "type": "string",
+     "required": true,
+     "location": "query"
+    }
+   },
+   "parameterOrder": [
+    "email",
+    "imkn",
+    "name",
+    "pwd",
+    "tutorialgroup"
+   ],
+   "response": {
+    "$ref": "Student"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "addTutorData": {
+   "id": "studentendpoints.addTutorData",
+   "path": "addTutorData",
+   "httpMethod": "POST",
+   "response": {
+    "$ref": "TutorCollection"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "authenticateTutor": {
+   "id": "studentendpoints.authenticateTutor",
+   "path": "authenticateTutor",
+   "httpMethod": "GET",
+   "parameters": {
+    "tutorpassword": {
+     "type": "string",
+     "required": true,
+     "location": "query"
+    },
+    "tutorusername": {
+     "type": "string",
+     "required": true,
+     "location": "query"
+    }
+   },
+   "parameterOrder": [
+    "tutorpassword",
+    "tutorusername"
+   ],
+   "response": {
+    "$ref": "Tutor"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "changePassword": {
+   "id": "studentendpoints.changePassword",
+   "path": "changePassword",
+   "httpMethod": "PUT",
+   "parameters": {
+    "tutornewpassword": {
+     "type": "string",
+     "required": true,
+     "location": "query"
+    },
+    "tutoroldpassword": {
+     "type": "string",
+     "required": true,
+     "location": "query"
+    },
+    "tutorusername": {
+     "type": "string",
+     "required": true,
+     "location": "query"
+    }
+   },
+   "parameterOrder": [
+    "tutornewpassword",
+    "tutoroldpassword",
+    "tutorusername"
+   ],
+   "response": {
+    "$ref": "Tutor"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "getStudent": {
+   "id": "studentendpoints.getStudent",
+   "path": "getStudent",
+   "httpMethod": "GET",
+   "parameters": {
+    "imkn": {
+     "type": "string",
+     "required": true,
+     "location": "query"
+    }
+   },
+   "parameterOrder": [
+    "imkn"
+   ],
+   "response": {
+    "$ref": "Student"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "getTutorial": {
+   "id": "studentendpoints.getTutorial",
+   "path": "getTutorial",
+   "httpMethod": "GET",
+   "parameters": {
+    "tutorialid": {
+     "type": "string",
+     "required": true,
+     "format": "int64",
+     "location": "query"
+    }
+   },
+   "parameterOrder": [
+    "tutorialid"
+   ],
+   "response": {
+    "$ref": "Tutorial"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "markAttendance": {
+   "id": "studentendpoints.markAttendance",
+   "path": "markAttendance",
+   "httpMethod": "PUT",
+   "parameters": {
+    "deviceid": {
+     "type": "string",
+     "required": true,
+     "location": "query"
+    },
+    "imkn": {
+     "type": "string",
+     "required": true,
+     "location": "query"
+    },
+    "randomkey": {
+     "type": "string",
+     "required": true,
+     "location": "query"
+    },
+    "weeknumber": {
+     "type": "integer",
+     "required": true,
+     "format": "int32",
+     "location": "query"
+    }
+   },
+   "parameterOrder": [
+    "deviceid",
+    "imkn",
+    "randomkey",
+    "weeknumber"
+   ],
+   "response": {
+    "$ref": "Student"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "setTutorial": {
+   "id": "studentendpoints.setTutorial",
+   "path": "setTutorial",
+   "httpMethod": "POST",
+   "parameters": {
+    "bonusweeks": {
+     "type": "integer",
+     "required": true,
+     "format": "int32",
+     "location": "query"
+    },
+    "duration": {
+     "type": "string",
+     "required": true,
+     "format": "int64",
+     "location": "query"
+    },
+    "totalweeks": {
+     "type": "integer",
+     "required": true,
+     "format": "int32",
+     "location": "query"
+    },
+    "tutorialname": {
+     "type": "string",
+     "required": true,
+     "location": "query"
+    },
+    "tutorialtimings": {
+     "type": "string",
+     "required": true,
+     "location": "query"
+    }
+   },
+   "parameterOrder": [
+    "bonusweeks",
+    "duration",
+    "totalweeks",
+    "tutorialname",
+    "tutorialtimings"
+   ],
+   "response": {
+    "$ref": "Tutorial"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "studentExist": {
+   "id": "studentendpoints.studentExist",
+   "path": "studentExist",
+   "httpMethod": "GET",
+   "parameters": {
+    "deviceid": {
+     "type": "string",
+     "required": true,
+     "location": "query"
+    },
+    "imkn": {
+     "type": "string",
+     "required": true,
+     "location": "query"
+    }
+   },
+   "parameterOrder": [
+    "deviceid",
+    "imkn"
+   ],
+   "response": {
+    "$ref": "Student"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "updatestudent": {
+   "id": "studentendpoints.updatestudent",
+   "path": "updatestudent",
+   "httpMethod": "PUT",
+   "parameters": {
+    "deviceid": {
+     "type": "string",
+     "required": true,
+     "location": "query"
+    },
+    "gcmregid": {
+     "type": "string",
+     "required": true,
+     "location": "query"
+    }
+   },
+   "parameterOrder": [
+    "deviceid",
+    "gcmregid"
+   ],
+   "response": {
+    "$ref": "Student"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  }
+ }
+}

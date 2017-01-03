@@ -18,10 +18,6 @@ function init() {
 
 
 function loadCallback() {
-//	gapi.client.studentendpoints.addTutorData().execute(
-//  	      function(status) {
-//  	    	  enableButtons();
-//	  });
 	enableButtons();
 	
 }
@@ -45,13 +41,11 @@ function studentSignUp() {
 }
 
 function tutorSignIn() {
-	gapi.client.studentendpoints.addTutorData();
-	//console.log('trying to add the tutor data')
-//	gapi.client.studentendpoints.addTutorData().execute(
-//	      function() {
-//	    	  window.location = "../tutor_sign_in.html"
-//	  });
+	gapi.client.studentendpoints.addTutorData().execute(
+			function(){
+				window.location = "../tutor_sign_in.html"
+	});
 	
-	window.location = "../tutor_sign_in.html"
+	
 }
 

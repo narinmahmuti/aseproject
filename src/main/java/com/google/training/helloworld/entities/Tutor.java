@@ -10,12 +10,12 @@ public class Tutor {
 	@Id
 	public Long Id;
 	
-	public String tutorUserName;
+	public String tutorusername;
 	
-	public String tutorPassword;
+	public String tutorpassword;
 	
 	public Tutor(String tutorUserName, String tutorPassword) {
-		this.tutorUserName = tutorUserName;
-		this.tutorPassword = tutorPassword;
+		this.tutorusername = tutorUserName;
+		this.tutorpassword = tutorPassword;
 	}
 }

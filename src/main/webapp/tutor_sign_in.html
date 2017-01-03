@@ -176,9 +176,9 @@
             var username = document.getElementById("tutor_username").value;
             var password = document.getElementById("tutor_password").value;
             alert("username :" + username + "   password :" + password);
-            gapi.client.studentendpoints.authenticateTutor(username, password).execute(
-            	      function(status) {
-            	    	  if (status) {
+            gapi.client.studentendpoints.authenticateTutor({'tutorusername':username},{'tutorpassword':password}).execute(
+            	      function(resp) {
+            	    	  if (!resp.code) {
             	                // authentication successful redirect him to the settings page
             	                alert("Authentication Successful!")
             	                window.location = "../tutor_settings.html"
