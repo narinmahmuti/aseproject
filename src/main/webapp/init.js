@@ -16,10 +16,9 @@ function init() {
 	gapi.client.load('studentendpoints', 'v1', loadCallback, rootpath);
 }
 
-
 function loadCallback() {
-	gapi.client.studentendpoints.addTutorData();
 	enableButtons();
+
 }
 
 function enableButtons() {
@@ -27,11 +26,13 @@ function enableButtons() {
 	btn.onclick = function() {
 		tutorSignIn();
 	};
+	btn.value = "Tutor Sign-In"
 
 	btn = document.getElementById("student_sign_up");
 	btn.onclick = function() {
 		studentSignUp();
 	};
+	btn.value = "Student Sign-up"
 }
 
 function studentSignUp() {
@@ -39,6 +40,17 @@ function studentSignUp() {
 }
 
 function tutorSignIn() {
-	window.location = "../tutor_sign_in.html"
-}
+	gapi.client.studentendpoints.addTutorData({
+		'tutorusername' : "nisa"
+	}, {
+		'tutorpassword' : "def123"
+	}).execute(function(resp) {
+		if (!resp.code) {
+			window.location = "../tutor_sign_in.html"
+		} else {
+			window.location = "../tutor_sign_in.html"
+		}
 
+	});
+
+}

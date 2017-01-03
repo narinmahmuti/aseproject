@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Sign Up</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <div class="center-div">
+        <h1>Student Sign Up</h1>
+    </div>
+    <script type="text/javascript">
+
+        function addStudentEntry() {
+            var name = document.getElementById("name_field").value;
+            var email = document.getElementById("email_field").value;
+            var password = document.getElementById("password_field").value;
+            var imkn = document.getElementById("imkn_field").value;
+            var tutorialGroup = document.getElementById("tutorial_group_field").value;
+            gapi.client.studentendpoints.addStudentEntry({'name':name},{'email':email}, {'imkn':imkn}, 
+            		{'pwd':password}, {'tutorialgroup':tutorialGroup}).execute(
+            				function(resp){
+            					if (!resp.code) {
+            						window.location = "../student_sign_up_feedback.html"
+            					} else {
+            						// insertion failed here
+            						window.location = "../student_sign_up_feedback.html"
+            					}
+            		});
+        }
+
+    </script>
+</head>
+<body>
+<div class="center3-div">
+    <div class="row">
+        <form role="form">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="InputName">Name</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="InputName" id="name_field" placeholder="Enter Name" required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="InputImmatrikulation">Immatrikulation Number</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="InputImmatrikulation" id="imkn_field" placeholder="Enter Immatrikulation Number" required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="InputEmail">Email</label>
+                    <div class="input-group">
+                        <input type="email" class="form-control" id="email_field" name="InputEmail" placeholder="Enter Email" required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="InputPassword">Password</label>
+                    <div class="input-group">
+                        <input type="email" class="form-control" id="password_field" name="InputPassword" placeholder="Enter Password" required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="InputEmail">Confirm Password</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="password_again_field" name="InputPassword" placeholder="Enter Password Again" required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="InputGroup">Tutorial Group</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="tutorial_group_field" name="TutorialGroup" placeholder="Enter Tutorial Group Number" required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                <input type="submit" name="submit" id="sign_up_button" value="Submit" onclick="addStudentEntry()" class="btn btn-info pull-right">
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+
+
+</body>
+</html>

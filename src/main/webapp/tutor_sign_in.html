@@ -172,16 +172,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
     <script type="text/javascript">
 
-        function authenticateTutor() {
+        function authenticate() {
             var username = document.getElementById("tutor_username").value;
             var password = document.getElementById("tutor_password").value;
-            var status = gapi.client.studentendpoints.authenticateTutor(username, password);
-            if (status) {
-                // authentication successful redirect him to the settings page
-                window.location = "../tutor_sign_in.html"
-            } else {
-                document.getElementById("authentication_status").value = "Authentication failed ! Please try again"
-            }
+            alert("username :" + username + "   password :" + password);
+            gapi.client.studentendpoints.authenticateTutor({'tutorusername':username},{'tutorpassword':password}).execute(
+            	      function(resp) {
+            	    	  if (!resp.code) {
+            	                // authentication successful redirect him to the settings page
+            	                alert("Authentication Successful!")
+            	                window.location = "../tutor_settings.html"
+            	            } else {
+            	            	alert("Authentication failed!")
+            	                document.getElementById("authentication_status").value = "Authentication failed ! Please try again"
+            	            }
+            	        });
+            	  };
         }
 
     </script>
@@ -194,7 +200,7 @@
         <i class="fa fa-user"></i>
         <input type="password" id="tutor_password" placeholder="Password" />
         <i class="fa fa-key"></i>
-        <button id="tutor_login" onclick="authenticateTutor()">
+        <button id="tutor_login" onclick="authenticate()">
             <i class="spinner"></i>
             <span class="state">Continue</span>
         </button>

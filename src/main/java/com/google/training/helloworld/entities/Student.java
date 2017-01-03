@@ -1,6 +1,7 @@
 package com.google.training.helloworld.entities;
 
 import com.google.api.server.spi.config.ApiMethod;
+import com.google.api.server.spi.config.Named;
 import com.google.api.server.spi.config.ApiMethod.HttpMethod;
 import com.googlecode.objectify.*;
 import com.googlecode.objectify.annotation.Entity;
@@ -8,43 +9,41 @@ import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
 import com.googlecode.objectify.annotation.Parent;
 
-
 @Entity
 public class Student {
 
+	@Parent
+	Key<Tutorial> tutorialgroup;
 
-	@Parent 
-	Key<Tutorial> tutorial;  
-	
 	@Id
 	public String imkn;
-	
-	public String studentName;
-	public String studentEmail;
+
+	public String name;
+	public String email;
 	@Index
-	public String studentPassword;
+	public String pwd;
 	@Index
-	public String studentDeviceId;
+	public String deviceid;
 	@Index
-	public String studentGCMRegId;
-	public int studentExpectedWeek;
-	public int studentTotalAttendedWeeks;
-	public boolean studentPresented;
-	public String studentCurrentRandomKey;
-	
+	public String gcmregid;
+	public int bonusweeks;
+	public int totalweeks;
+	public boolean ispresented;
+	public String randomkey;
+
 	public Student() {
-		
-	}
-	
-	/*
-	 * */
-	public Student(String name, String email, String pwd, String imkn, String tutorialId) {
-		tutorial = Key.create(Tutorial.class, tutorialId);
-		this.studentName = name;
-		this.studentEmail = email;
-		this.imkn = imkn;
-		this.studentPassword = pwd;
+
 	}
 
-	
+	/*
+	 * */
+	public Student(String name, String email, String pwd, String imkn,
+			String tutorialId) {
+		tutorialgroup = Key.create(Tutorial.class, tutorialId);
+		this.name = name;
+		this.email = email;
+		this.imkn = imkn;
+		this.pwd = pwd;
+	}
+
 }
