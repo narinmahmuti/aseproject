@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/8tnEu6NDZ7cbl85ejj1cW3SJMMo\"",
+ "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/7NIOgCIn4asvjL8VE5bLEsqZN6k\"",
  "discoveryVersion": "v1",
  "id": "studentendpoints:v1",
  "name": "studentendpoints",
@@ -414,11 +414,16 @@
     "gcmregid": {
      "type": "string",
      "required": true
+    },
+    "imkn": {
+     "type": "string",
+     "required": true
     }
    },
    "parameterOrder": [
     "deviceid",
-    "gcmregid"
+    "gcmregid",
+    "imkn"
    ],
    "returns": {
     "$ref": "Student"

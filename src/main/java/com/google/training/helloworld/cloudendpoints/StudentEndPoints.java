@@ -2,8 +2,6 @@ package com.google.training.helloworld.cloudendpoints;
 
 import java.util.List;
 
-import javax.swing.text.WrappedPlainView;
-
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiMethod.HttpMethod;
@@ -36,16 +34,22 @@ public class StudentEndPoints {
 	// Declare this method as a method available externally through Endpoints
 	@ApiMethod(name = "getStudent", path = "getStudent", httpMethod = HttpMethod.GET)
 	public Student getStudent(@Named("imkn") String imkn) {
-		// TODO : get Student based on some imkn
-		return new Student();
+		Student student = ObjectifyService.ofy().load().type(Student.class)
+				.id(imkn).now();
+		return student;
 	}
 
 	// Declare this method as a method available externally through Endpoints
 	@ApiMethod(name = "updatestudent", path = "updatestudent", httpMethod = HttpMethod.PUT)
-	public Student updatestudent(@Named("deviceid") String deviceId,
+	public Student updatestudent(@Named("imkn") String imkn,
+			@Named("deviceid") String deviceId,
 			@Named("gcmregid") String gcmRegId) {
-		// TODO : will be implemented once bulent finished the gcm registration
-		return new Student();
+		Student student = ObjectifyService.ofy().load().type(Student.class)
+				.id(imkn).now();
+		student.deviceid = deviceId;
+		student.gcmregid = gcmRegId;
+		ObjectifyService.ofy().save().entity(student).now();
+		return student;
 	}
 
 	// Declare this method as a method available externally through Endpoints
@@ -53,7 +57,13 @@ public class StudentEndPoints {
 	public Student studentExist(@Named("imkn") String imkn,
 			@Named("deviceid") String deviceId) {
 		// TODO : check if the mapping imkn <=> deviceId exist in datastore
-		return new Student();
+		Student student = ObjectifyService.ofy().load().type(Student.class)
+				.id(imkn).now();
+		if (deviceId.equals(student.deviceid)) {
+			return student;
+		} else {
+			return null;
+		}
 	}
 
 	@ApiMethod(name = "markAttendance", path = "markAttendance", httpMethod = HttpMethod.PUT)
@@ -62,7 +72,11 @@ public class StudentEndPoints {
 			@Named("randomkey") String randomKey,
 			@Named("weeknumber") int weekNo) {
 		// TODO : check for fraud and then mark attendance
-		return new Student();
+		Student student = ObjectifyService.ofy().load().type(Student.class)
+				.id(imkn).now();
+		
+		// logic for checking the frawd and marking the attendance
+		return student;
 	}
 
 	/* ==================Tutorial End Points=========================== */
@@ -82,9 +96,10 @@ public class StudentEndPoints {
 
 	// Declare this method as a method available externally through Endpoints
 	@ApiMethod(name = "getTutorial", path = "getTutorial", httpMethod = HttpMethod.GET)
-	public Tutorial getTutorial(@Named("tutorialid") Long tutorialId) {
-		// TODO : return tutorial based on the tutorial Id
-		return new Tutorial();
+	public Tutorial getTutorial(@Named("tutorialid") long tutorialId) {
+		Tutorial tutorial = ObjectifyService.ofy().load().type(Tutorial.class)
+				.id(tutorialId).now();
+		return tutorial;
 	}
 
 	/* ===================Tutor End Points============================ */
@@ -122,7 +137,7 @@ public class StudentEndPoints {
 	@ApiMethod(name = "addTutorData", path = "addTutorData", httpMethod = HttpMethod.POST)
 	public Tutor addTutorData(@Named("tutorusername") String username,
 			@Named("tutorpassword") String password) {
-		
+
 		Tutor tutor = new Tutor(username, password);
 		ObjectifyService.ofy().save().entity(tutor).now();
 

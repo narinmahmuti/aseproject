@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/8tnEu6NDZ7cbl85ejj1cW3SJMMo\"",
+ "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/7NIOgCIn4asvjL8VE5bLEsqZN6k\"",
  "discoveryVersion": "v1",
  "id": "studentendpoints:v1",
  "name": "studentendpoints",
@@ -459,11 +459,17 @@
      "type": "string",
      "required": true,
      "location": "query"
+    },
+    "imkn": {
+     "type": "string",
+     "required": true,
+     "location": "query"
     }
    },
    "parameterOrder": [
     "deviceid",
-    "gcmregid"
+    "gcmregid",
+    "imkn"
    ],
    "response": {
     "$ref": "Student"
