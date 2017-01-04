@@ -178,7 +178,7 @@
             var status = gapi.client.studentendpoints.authenticateTutor(username, password);
             if (status) {
                 // authentication successful redirect him to the settings page
-                window.location = "../tutor_sign_in.html"
+                window.location = "tutor_settings.html"
             } else {
                 document.getElementById("authentication_status").value = "Authentication failed ! Please try again"
             }
