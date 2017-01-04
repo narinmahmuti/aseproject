@@ -40,16 +40,15 @@ function studentSignUp() {
 }
 
 function tutorSignIn() {
-	gapi.client.studentendpoints.addTutorData({
-		'tutorusername' : "nisa"
-	}, {
-		'tutorpassword' : "def123"
-	}).execute(function(resp) {
-		if (!resp.code) {
-			window.location = "../tutor_sign_in.html"
-		} else {
-			window.location = "../tutor_sign_in.html"
-		}
+	gapi.client.studentendpoints.addTutorData({'tutorusername' : "nisa"},{'tutorpassword' : "def123"}).
+	execute(function(resp) {
+		window.location = "../tutor_sign_in.html"
+		console.log("deepesh====> " + resp);
+//		if (resp.code) {
+//			
+//		} else {
+//			alert("something went wrong " + resp)
+//		}
 
 	});
 

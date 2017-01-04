@@ -138,6 +138,7 @@ public class StudentEndPoints {
 	public Tutor addTutorData(@Named("tutorusername") String username,
 			@Named("tutorpassword") String password) {
 
+		System.out.println("Trying to add the tutor : " + username + password );
 		Tutor tutor = new Tutor(username, password);
 		ObjectifyService.ofy().save().entity(tutor).now();
 
