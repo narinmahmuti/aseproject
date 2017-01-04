@@ -8,7 +8,7 @@ public class Tutor {
 
 	
 	@Id
-	public long Id;
+	public Long Id;
 	
 	public String tutorusername;
 	

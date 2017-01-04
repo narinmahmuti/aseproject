@@ -96,7 +96,7 @@ public class StudentEndPoints {
 
 	// Declare this method as a method available externally through Endpoints
 	@ApiMethod(name = "getTutorial", path = "getTutorial", httpMethod = HttpMethod.GET)
-	public Tutorial getTutorial(@Named("tutorialid") long tutorialId) {
+	public Tutorial getTutorial(@Named("tutorialid") Long tutorialId) {
 		Tutorial tutorial = ObjectifyService.ofy().load().type(Tutorial.class)
 				.id(tutorialId).now();
 		return tutorial;
